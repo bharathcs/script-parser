@@ -2,7 +2,6 @@ package scriptparser
 
 import (
 	"encoding/csv"
-	"github.com/bharathcs/script-parser/internal/printutils"
 	"io"
 )
 
@@ -75,7 +74,7 @@ func (s Script) CreateSearchFunction(comparator StringComparator, simplifiers ..
 
 func (s Script) ConvertToCsv(splitAtNewLine bool, wr io.Writer) {
 	writer := csv.NewWriter(wr)
-	writer.WriteAll(printutils.PrintScript(s, splitAtNewLine))
+	writer.WriteAll(printScript(s, splitAtNewLine))
 	writer.Flush()
 }
 
